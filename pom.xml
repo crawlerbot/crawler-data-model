@@ -5,20 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.crawlerbot.messenger</groupId>
-    <artifactId>crawler-messenger</artifactId>
+    <artifactId>crawler-data-model</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>crawler-messenger  core library</name>
-    <description>crawler-messenger library used by applications transform message inside crawler system</description>
-    <url>https://github.com/crawlerbot/crawler-messenger/</url>
+    <name>crawler-data-model  core library</name>
+    <description>crawler-data-model library used by applications transform message inside crawler system</description>
+    <url>https://github.com/crawlerbot/crawler-data-model/</url>
     <organization>
         <name>crawlerbot</name>
         <url>http://www.crawlerbot.io</url>
     </organization>
 
     <scm>
-        <connection>scm:git:git://github.com/crawlerbot/crawler-messenger.git</connection>
-        <developerConnection>scm:git:git@github.com:crawlerbot/crawler-messenger.git</developerConnection>
-        <url>https://github.com/crawlerbot/crawler-messenger</url>
+        <connection>scm:git:git://github.com/crawlerbot/crawler-data-model.git</connection>
+        <developerConnection>scm:git:git@github.com:crawlerbot/crawler-data-model.git</developerConnection>
+        <url>https://github.com/crawlerbot/crawler-data-model</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -26,7 +26,7 @@
     <licenses>
         <license>
             <name>Apache License, version 2.0</name>
-            <url>https://github.com/simlife/crawler-messenger/blob/master/LICENSE.txt</url>
+            <url>https://github.com/simlife/crawler-data-model/blob/master/LICENSE.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
