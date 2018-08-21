@@ -1,7 +1,7 @@
 package io.github.crawlerbot.models.crawl;
 
 
-import io.github.crawlerbot.models.crawl.enumeration.DocType;
+import io.github.crawlerbot.domain.enumeration.DocType;
 import io.github.crawlerbot.domain.enumeration.Engine;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

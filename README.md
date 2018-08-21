@@ -1,2 +1,2 @@
-# crawler-messager
-crawler-messager
+# crawler-messenger
+crawler-messenger data model

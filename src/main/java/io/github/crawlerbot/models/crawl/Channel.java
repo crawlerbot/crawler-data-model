@@ -1,7 +1,7 @@
 package io.github.crawlerbot.models.crawl;
 
 
-import io.github.crawlerbot.models.crawl.enumeration.PostType;
+import io.github.crawlerbot.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.query.Meta;
