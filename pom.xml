@@ -6,7 +6,7 @@
 
     <groupId>io.github.crawlerbot</groupId>
     <artifactId>crawler-data-model</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>crawler-data-model  core library</name>
     <description>crawler-data-model library used by applications transform message inside crawler system</description>
     <url>https://github.com/crawlerbot/crawler-data-model/</url>
