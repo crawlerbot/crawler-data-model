@@ -13,7 +13,8 @@ import java.util.Objects;
 /**
  * A Meta.
  */
-
+@Document(collection = "meta")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "meta")
 public class Meta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,6 +69,9 @@ public class Meta implements Serializable {
 
     @Field("topics")
     private String topics;
+
+    @Field("destination")
+    private String destination;
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
@@ -285,6 +289,19 @@ public class Meta implements Serializable {
     public void setTopics(String topics) {
         this.topics = topics;
     }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Meta destination(String destination) {
+        this.destination = destination;
+        return this;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
     // simlife-needle-entity-add-getters-setters - Simlife will add getters and setters here, do not remove
 
     @Override
@@ -327,6 +344,7 @@ public class Meta implements Serializable {
             ", targetQueueChannel='" + getTargetQueueChannel() + "'" +
             ", topicSlugs='" + getTopicSlugs() + "'" +
             ", topics='" + getTopics() + "'" +
+            ", destination='" + getDestination() + "'" +
             "}";
     }
 }

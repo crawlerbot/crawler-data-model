@@ -3,6 +3,8 @@ package io.github.crawlerbot.models.crawl;
 
 import io.github.crawlerbot.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
@@ -13,7 +15,8 @@ import java.util.Set;
 /**
  * A Channel.
  */
-
+@Document(collection = "channel")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "channel")
 public class Channel implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,23 +33,30 @@ public class Channel implements Serializable {
     @Field("total_level")
     private Integer totalLevel;
 
+    @Field("destination")
+    private String destination;
+
     @Field("url")
     private String url;
 
     @Field("post_type")
     private PostType postType;
 
-    @Field("configFetchEngines")
+   // @Field("configFetchEngines")
+    @DBRef
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
 
-    @Field("meta")
+    //@Field("meta")
+    @DBRef
     private Set<Meta> metas = new HashSet<>();
 
 
-    @Field("siteActionConfigs")
+   // @Field("siteActionConfigs")
+    @DBRef
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
 
-    @Field("configMappings")
+    //@Field("configMappings")
+    @DBRef
     private Set<MappingConfig> configMappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
@@ -95,6 +105,19 @@ public class Channel implements Serializable {
 
     public void setTotalLevel(Integer totalLevel) {
         this.totalLevel = totalLevel;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Channel destination(String destination) {
+        this.destination = destination;
+        return this;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
     public String getUrl() {
@@ -243,6 +266,7 @@ public class Channel implements Serializable {
             ", allowExternalUrl='" + isAllowExternalUrl() + "'" +
             ", archiveLevel=" + getArchiveLevel() +
             ", totalLevel=" + getTotalLevel() +
+            ", destination='" + getDestination() + "'" +
             ", url='" + getUrl() + "'" +
             ", postType='" + getPostType() + "'" +
             "}";
