@@ -2,6 +2,7 @@ package io.github.crawlerbot.models.crawl;
 
 
 import io.github.crawlerbot.domain.enumeration.ChannelType;
+import io.github.crawlerbot.domain.enumeration.DestinationSystem;
 import io.github.crawlerbot.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -71,7 +72,7 @@ public class Meta implements Serializable {
     private String topics;
 
     @Field("destination")
-    private String destination;
+    private DestinationSystem destination;
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
@@ -290,16 +291,16 @@ public class Meta implements Serializable {
         this.topics = topics;
     }
 
-    public String getDestination() {
+    public DestinationSystem getDestination() {
         return destination;
     }
 
-    public Meta destination(String destination) {
+    public Meta destination(DestinationSystem destination) {
         this.destination = destination;
         return this;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(DestinationSystem destination) {
         this.destination = destination;
     }
     // simlife-needle-entity-add-getters-setters - Simlife will add getters and setters here, do not remove

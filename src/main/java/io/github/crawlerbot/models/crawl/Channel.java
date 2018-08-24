@@ -1,6 +1,7 @@
 package io.github.crawlerbot.models.crawl;
 
 
+import io.github.crawlerbot.domain.enumeration.DestinationSystem;
 import io.github.crawlerbot.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -34,7 +35,7 @@ public class Channel implements Serializable {
     private Integer totalLevel;
 
     @Field("destination")
-    private String destination;
+    private DestinationSystem destination;
 
     @Field("url")
     private String url;
@@ -107,16 +108,16 @@ public class Channel implements Serializable {
         this.totalLevel = totalLevel;
     }
 
-    public String getDestination() {
+    public DestinationSystem getDestination() {
         return destination;
     }
 
-    public Channel destination(String destination) {
+    public Channel destination(DestinationSystem destination) {
         this.destination = destination;
         return this;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(DestinationSystem destination) {
         this.destination = destination;
     }
 
