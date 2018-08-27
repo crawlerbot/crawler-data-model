@@ -42,7 +42,7 @@ public class Channel implements Serializable {
     @Field("post_type")
     private PostType postType;
 
-   // @Field("configFetchEngines")
+    // @Field("configFetchEngines")
     @DBRef
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
 
@@ -51,7 +51,7 @@ public class Channel implements Serializable {
     private Set<Meta> metas = new HashSet<>();
 
 
-   // @Field("siteActionConfigs")
+    // @Field("siteActionConfigs")
     @DBRef
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
 
@@ -262,13 +262,13 @@ public class Channel implements Serializable {
     @Override
     public String toString() {
         return "Channel{" +
-            "id=" + getId() +
-            ", allowExternalUrl='" + isAllowExternalUrl() + "'" +
-            ", archiveLevel=" + getArchiveLevel() +
-            ", totalLevel=" + getTotalLevel() +
-            ", destination='" + getDestination() + "'" +
-            ", url='" + getUrl() + "'" +
-            ", postType='" + getPostType() + "'" +
-            "}";
+                "id=" + getId() +
+                ", allowExternalUrl='" + isAllowExternalUrl() + "'" +
+                ", archiveLevel=" + getArchiveLevel() +
+                ", totalLevel=" + getTotalLevel() +
+                ", destination='" + getDestination() + "'" +
+                ", url='" + getUrl() + "'" +
+                ", postType='" + getPostType() + "'" +
+                "}";
     }
 }
