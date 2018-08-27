@@ -14,7 +14,7 @@ import java.util.Set;
  * A SiteAction.
  */
 @Document(collection = "site_action")
-@org.springframework.data.elasticsearch.annotations.Document(indexName = "site_action")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "siteaction")
 public class SiteAction implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,8 +25,10 @@ public class SiteAction implements Serializable {
     @Field("domain")
     private String domain;
 
+    @Field("label")
+    private String label;
+
     @DBRef
-   // @Field("actions")
     private Set<Action> actions = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
@@ -49,6 +51,19 @@ public class SiteAction implements Serializable {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public SiteAction label(String label) {
+        this.label = label;
+        return this;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public Set<Action> getActions() {
@@ -100,6 +115,7 @@ public class SiteAction implements Serializable {
         return "SiteAction{" +
             "id=" + getId() +
             ", domain='" + getDomain() + "'" +
+            ", label='" + getLabel() + "'" +
             "}";
     }
 }
