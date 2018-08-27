@@ -3,7 +3,6 @@ package com.crawler.config.domain;
 import com.crawler.config.domain.enumeration.DestinationSystem;
 import com.crawler.config.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -39,24 +38,21 @@ public class Channel implements Serializable {
     @Field("url")
     private String url;
 
+    @Field("name")
+    private String name;
+
     @Field("post_type")
     private PostType postType;
 
-    // @Field("configFetchEngines")
-    @DBRef
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
 
-    //@Field("meta")
-    @DBRef
+
     private Set<Meta> metas = new HashSet<>();
 
 
-    // @Field("siteActionConfigs")
-    @DBRef
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
 
-    //@Field("configMappings")
-    @DBRef
+
     private Set<MappingConfig> configMappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
@@ -131,6 +127,19 @@ public class Channel implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Channel name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public PostType getPostType() {
@@ -262,13 +271,14 @@ public class Channel implements Serializable {
     @Override
     public String toString() {
         return "Channel{" +
-                "id=" + getId() +
-                ", allowExternalUrl='" + isAllowExternalUrl() + "'" +
-                ", archiveLevel=" + getArchiveLevel() +
-                ", totalLevel=" + getTotalLevel() +
-                ", destination='" + getDestination() + "'" +
-                ", url='" + getUrl() + "'" +
-                ", postType='" + getPostType() + "'" +
-                "}";
+            "id=" + getId() +
+            ", allowExternalUrl='" + isAllowExternalUrl() + "'" +
+            ", archiveLevel=" + getArchiveLevel() +
+            ", totalLevel=" + getTotalLevel() +
+            ", destination='" + getDestination() + "'" +
+            ", url='" + getUrl() + "'" +
+            ", name='" + getName() + "'" +
+            ", postType='" + getPostType() + "'" +
+            "}";
     }
 }

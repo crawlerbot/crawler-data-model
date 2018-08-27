@@ -43,6 +43,9 @@ public class Meta implements Serializable {
     @Field("name")
     private String name;
 
+    @Field("publisher_name")
+    private String publisherName;
+
     @Field("post_type")
     private PostType postType;
 
@@ -171,6 +174,19 @@ public class Meta implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPublisherName() {
+        return publisherName;
+    }
+
+    public Meta publisherName(String publisherName) {
+        this.publisherName = publisherName;
+        return this;
+    }
+
+    public void setPublisherName(String publisherName) {
+        this.publisherName = publisherName;
     }
 
     public PostType getPostType() {
@@ -335,6 +351,7 @@ public class Meta implements Serializable {
             ", languageCode='" + getLanguageCode() + "'" +
             ", logo='" + getLogo() + "'" +
             ", name='" + getName() + "'" +
+            ", publisherName='" + getPublisherName() + "'" +
             ", postType='" + getPostType() + "'" +
             ", rankingCountry=" + getRankingCountry() +
             ", siteDomain='" + getSiteDomain() + "'" +
