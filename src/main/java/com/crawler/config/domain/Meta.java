@@ -58,6 +58,9 @@ public class Meta implements Serializable {
     @Field("site_url")
     private String siteUrl;
 
+    @Field("url")
+    private String url;
+
     @Field("tag")
     private String tag;
 
@@ -241,6 +244,19 @@ public class Meta implements Serializable {
         this.siteUrl = siteUrl;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public Meta url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getTag() {
         return tag;
     }
@@ -356,6 +372,7 @@ public class Meta implements Serializable {
             ", rankingCountry=" + getRankingCountry() +
             ", siteDomain='" + getSiteDomain() + "'" +
             ", siteUrl='" + getSiteUrl() + "'" +
+            ", url='" + getUrl() + "'" +
             ", tag='" + getTag() + "'" +
             ", tagSlug='" + getTagSlug() + "'" +
             ", targetQueueChannel='" + getTargetQueueChannel() + "'" +
