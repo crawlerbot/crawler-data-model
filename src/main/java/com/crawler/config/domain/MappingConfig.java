@@ -1,7 +1,6 @@
 package com.crawler.config.domain;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -14,7 +13,7 @@ import java.util.Set;
  * A MappingConfig.
  */
 @Document(collection = "mapping_config")
-@org.springframework.data.elasticsearch.annotations.Document(indexName = "mapping_config")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "mappingconfig")
 public class MappingConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,8 +24,9 @@ public class MappingConfig implements Serializable {
     @Field("domain")
     private String domain;
 
-    //@Field("configGroups")
-    @DBRef
+    @Field("label")
+    private String label;
+
     private Set<ConfigGroup> configGroups = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
@@ -49,6 +49,19 @@ public class MappingConfig implements Serializable {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public MappingConfig label(String label) {
+        this.label = label;
+        return this;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public Set<ConfigGroup> getConfigGroups() {
@@ -100,6 +113,7 @@ public class MappingConfig implements Serializable {
         return "MappingConfig{" +
             "id=" + getId() +
             ", domain='" + getDomain() + "'" +
+            ", label='" + getLabel() + "'" +
             "}";
     }
 }

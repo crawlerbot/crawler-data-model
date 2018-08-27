@@ -2,7 +2,6 @@ package com.crawler.config.domain;
 
 import com.crawler.config.domain.enumeration.ResultType;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -15,7 +14,7 @@ import java.util.Set;
  * A ConfigGroup.
  */
 @Document(collection = "config_group")
-@org.springframework.data.elasticsearch.annotations.Document(indexName = "config_group")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "configgroup")
 public class ConfigGroup implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,11 +31,13 @@ public class ConfigGroup implements Serializable {
     @Field("host")
     private String host;
 
+    @Field("label")
+    private String label;
+
     @Field("expect_result_type")
     private ResultType expectResultType;
 
-    //@Field("mappings")
-    @DBRef
+
     private Set<Mapping> mappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
@@ -85,6 +86,19 @@ public class ConfigGroup implements Serializable {
 
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public ConfigGroup label(String label) {
+        this.label = label;
+        return this;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public ResultType getExpectResultType() {
@@ -151,6 +165,7 @@ public class ConfigGroup implements Serializable {
             ", currentLevel=" + getCurrentLevel() +
             ", name='" + getName() + "'" +
             ", host='" + getHost() + "'" +
+            ", label='" + getLabel() + "'" +
             ", expectResultType='" + getExpectResultType() + "'" +
             "}";
     }

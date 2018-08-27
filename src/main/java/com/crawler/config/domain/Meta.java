@@ -79,6 +79,9 @@ public class Meta implements Serializable {
     @Field("destination")
     private DestinationSystem destination;
 
+    @Field("label")
+    private String label;
+
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
         return id;
@@ -334,6 +337,19 @@ public class Meta implements Serializable {
     public void setDestination(DestinationSystem destination) {
         this.destination = destination;
     }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public Meta label(String label) {
+        this.label = label;
+        return this;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
     // simlife-needle-entity-add-getters-setters - Simlife will add getters and setters here, do not remove
 
     @Override
@@ -379,6 +395,7 @@ public class Meta implements Serializable {
             ", topicSlugs='" + getTopicSlugs() + "'" +
             ", topics='" + getTopics() + "'" +
             ", destination='" + getDestination() + "'" +
+            ", label='" + getLabel() + "'" +
             "}";
     }
 }
