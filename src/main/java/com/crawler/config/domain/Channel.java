@@ -50,6 +50,8 @@ public class Channel implements Serializable {
     private Set<MappingConfig> configMappings = new HashSet<>();
 
     // not require channel
+    @Field("target_system")
+    private DestinationSystem targetSystem;
     private Set<FetchEngine> destinationFetchEngines = new HashSet<>();
     private Set<Meta> destinationMetas = new HashSet<>();
     private Set<SiteAction> destinationSiteConfigs = new HashSet<>();
@@ -176,6 +178,15 @@ public class Channel implements Serializable {
 
     public void setConfigFetchEngines(Set<FetchEngine> fetchEngines) {
         this.configFetchEngines = fetchEngines;
+    }
+
+
+    public DestinationSystem getTargetSystem() {
+        return targetSystem;
+    }
+
+    public void setTargetSystem(DestinationSystem targetSystem) {
+        this.targetSystem = targetSystem;
     }
 
     public Set<Meta> getMetas() {
