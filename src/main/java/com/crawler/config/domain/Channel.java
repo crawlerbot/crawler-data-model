@@ -3,6 +3,7 @@ package com.crawler.config.domain;
 import com.crawler.config.domain.enumeration.DestinationSystem;
 import com.crawler.config.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -43,10 +44,13 @@ public class Channel implements Serializable {
 
     @Field("post_type")
     private PostType postType;
-
+    @DBRef
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
+    @DBRef
     private Set<Meta> metas = new HashSet<>();
+    @DBRef
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
+    @DBRef
     private Set<MappingConfig> configMappings = new HashSet<>();
 
     // not require channel

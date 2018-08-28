@@ -2,6 +2,7 @@ package com.crawler.config.domain;
 
 import com.crawler.config.domain.enumeration.ResultType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -37,7 +38,7 @@ public class ConfigGroup implements Serializable {
     @Field("expect_result_type")
     private ResultType expectResultType;
 
-
+    @DBRef
     private Set<Mapping> mappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove

@@ -3,6 +3,7 @@ package com.crawler.config.domain;
 import com.crawler.config.domain.enumeration.DestinationSystem;
 import com.crawler.config.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -44,27 +45,27 @@ public class ScrapeChannel implements Serializable {
     @Field("post_type")
     private PostType postType;
 
-
+    @DBRef
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
 
-
+    @DBRef
     private Set<Meta> metas = new HashSet<>();
 
-
+    @DBRef
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
 
-
+    @DBRef
     private Set<MappingConfig> configMappings = new HashSet<>();
 
-
+    @DBRef
     private Set<FetchEngine> destinationFetchEngines = new HashSet<>();
 
-
+    @DBRef
     private Set<Meta> destinationMetas = new HashSet<>();
 
-
+    @DBRef
     private Set<SiteAction> destinationSiteConfigs = new HashSet<>();
-
+    @DBRef
     private Set<MappingConfig> destinationConfigMappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
