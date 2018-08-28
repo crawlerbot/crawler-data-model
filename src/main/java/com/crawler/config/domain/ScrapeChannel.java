@@ -3,7 +3,6 @@ package com.crawler.config.domain;
 import com.crawler.config.domain.enumeration.DestinationSystem;
 import com.crawler.config.domain.enumeration.PostType;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -36,23 +35,37 @@ public class ScrapeChannel implements Serializable {
     @Field("destination")
     private DestinationSystem destination;
 
+    @Field("target_system")
+    private DestinationSystem targetSystem;
+
     @Field("url")
     private String url;
 
     @Field("post_type")
     private PostType postType;
 
-    @DBRef
+
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
 
-    @DBRef
+
     private Set<Meta> metas = new HashSet<>();
 
-    @DBRef
+
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
 
-    @DBRef
+
     private Set<MappingConfig> configMappings = new HashSet<>();
+
+
+    private Set<FetchEngine> destinationFetchEngines = new HashSet<>();
+
+
+    private Set<Meta> destinationMetas = new HashSet<>();
+
+
+    private Set<SiteAction> destinationSiteConfigs = new HashSet<>();
+
+    private Set<MappingConfig> destinationConfigMappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
@@ -113,6 +126,19 @@ public class ScrapeChannel implements Serializable {
 
     public void setDestination(DestinationSystem destination) {
         this.destination = destination;
+    }
+
+    public DestinationSystem getTargetSystem() {
+        return targetSystem;
+    }
+
+    public ScrapeChannel targetSystem(DestinationSystem targetSystem) {
+        this.targetSystem = targetSystem;
+        return this;
+    }
+
+    public void setTargetSystem(DestinationSystem targetSystem) {
+        this.targetSystem = targetSystem;
     }
 
     public String getUrl() {
@@ -232,6 +258,98 @@ public class ScrapeChannel implements Serializable {
     public void setConfigMappings(Set<MappingConfig> mappingConfigs) {
         this.configMappings = mappingConfigs;
     }
+
+    public Set<FetchEngine> getDestinationFetchEngines() {
+        return destinationFetchEngines;
+    }
+
+    public ScrapeChannel destinationFetchEngines(Set<FetchEngine> fetchEngines) {
+        this.destinationFetchEngines = fetchEngines;
+        return this;
+    }
+
+    public ScrapeChannel addDestinationFetchEngine(FetchEngine fetchEngine) {
+        this.destinationFetchEngines.add(fetchEngine);
+        return this;
+    }
+
+    public ScrapeChannel removeDestinationFetchEngine(FetchEngine fetchEngine) {
+        this.destinationFetchEngines.remove(fetchEngine);
+        return this;
+    }
+
+    public void setDestinationFetchEngines(Set<FetchEngine> fetchEngines) {
+        this.destinationFetchEngines = fetchEngines;
+    }
+
+    public Set<Meta> getDestinationMetas() {
+        return destinationMetas;
+    }
+
+    public ScrapeChannel destinationMetas(Set<Meta> metas) {
+        this.destinationMetas = metas;
+        return this;
+    }
+
+    public ScrapeChannel addDestinationMeta(Meta meta) {
+        this.destinationMetas.add(meta);
+        return this;
+    }
+
+    public ScrapeChannel removeDestinationMeta(Meta meta) {
+        this.destinationMetas.remove(meta);
+        return this;
+    }
+
+    public void setDestinationMetas(Set<Meta> metas) {
+        this.destinationMetas = metas;
+    }
+
+    public Set<SiteAction> getDestinationSiteConfigs() {
+        return destinationSiteConfigs;
+    }
+
+    public ScrapeChannel destinationSiteConfigs(Set<SiteAction> siteActions) {
+        this.destinationSiteConfigs = siteActions;
+        return this;
+    }
+
+    public ScrapeChannel addDestinationSiteConfig(SiteAction siteAction) {
+        this.destinationSiteConfigs.add(siteAction);
+        return this;
+    }
+
+    public ScrapeChannel removeDestinationSiteConfig(SiteAction siteAction) {
+        this.destinationSiteConfigs.remove(siteAction);
+        return this;
+    }
+
+    public void setDestinationSiteConfigs(Set<SiteAction> siteActions) {
+        this.destinationSiteConfigs = siteActions;
+    }
+
+    public Set<MappingConfig> getDestinationConfigMappings() {
+        return destinationConfigMappings;
+    }
+
+    public ScrapeChannel destinationConfigMappings(Set<MappingConfig> mappingConfigs) {
+        this.destinationConfigMappings = mappingConfigs;
+        return this;
+    }
+
+    public ScrapeChannel addDestinationConfigMapping(MappingConfig mappingConfig) {
+        this.destinationConfigMappings.add(mappingConfig);
+        return this;
+    }
+
+    public ScrapeChannel removeDestinationConfigMapping(MappingConfig mappingConfig) {
+        this.destinationConfigMappings.remove(mappingConfig);
+        return this;
+    }
+
+    public void setDestinationConfigMappings(Set<MappingConfig> mappingConfigs) {
+        this.destinationConfigMappings = mappingConfigs;
+    }
     // simlife-needle-entity-add-getters-setters - Simlife will add getters and setters here, do not remove
 
     @Override
@@ -262,6 +380,7 @@ public class ScrapeChannel implements Serializable {
             ", archiveLevel=" + getArchiveLevel() +
             ", totalLevel=" + getTotalLevel() +
             ", destination='" + getDestination() + "'" +
+            ", targetSystem='" + getTargetSystem() + "'" +
             ", url='" + getUrl() + "'" +
             ", postType='" + getPostType() + "'" +
             "}";
