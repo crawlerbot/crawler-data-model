@@ -45,15 +45,15 @@ public class Channel implements Serializable {
     private PostType postType;
 
     private Set<FetchEngine> configFetchEngines = new HashSet<>();
-
-
     private Set<Meta> metas = new HashSet<>();
-
-
     private Set<SiteAction> siteActionConfigs = new HashSet<>();
-
-
     private Set<MappingConfig> configMappings = new HashSet<>();
+
+    // not require channel
+    private Set<FetchEngine> destinationFetchEngines = new HashSet<>();
+    private Set<Meta> destinationMetas = new HashSet<>();
+    private Set<SiteAction> destinationSiteConfigs = new HashSet<>();
+    private Set<MappingConfig> destinationConfigMappings = new HashSet<>();
 
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
