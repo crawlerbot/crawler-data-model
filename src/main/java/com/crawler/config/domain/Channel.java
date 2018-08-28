@@ -246,6 +246,38 @@ public class Channel implements Serializable {
     public void setConfigMappings(Set<MappingConfig> mappingConfigs) {
         this.configMappings = mappingConfigs;
     }
+
+    public Set<FetchEngine> getDestinationFetchEngines() {
+        return destinationFetchEngines;
+    }
+
+    public void setDestinationFetchEngines(Set<FetchEngine> destinationFetchEngines) {
+        this.destinationFetchEngines = destinationFetchEngines;
+    }
+
+    public Set<Meta> getDestinationMetas() {
+        return destinationMetas;
+    }
+
+    public void setDestinationMetas(Set<Meta> destinationMetas) {
+        this.destinationMetas = destinationMetas;
+    }
+
+    public Set<SiteAction> getDestinationSiteConfigs() {
+        return destinationSiteConfigs;
+    }
+
+    public void setDestinationSiteConfigs(Set<SiteAction> destinationSiteConfigs) {
+        this.destinationSiteConfigs = destinationSiteConfigs;
+    }
+
+    public Set<MappingConfig> getDestinationConfigMappings() {
+        return destinationConfigMappings;
+    }
+
+    public void setDestinationConfigMappings(Set<MappingConfig> destinationConfigMappings) {
+        this.destinationConfigMappings = destinationConfigMappings;
+    }
     // simlife-needle-entity-add-getters-setters - Simlife will add getters and setters here, do not remove
 
     @Override
