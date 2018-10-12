@@ -61,6 +61,8 @@ public class Channel implements Serializable {
     private Set<SiteAction> destinationSiteConfigs = new HashSet<>();
     private Set<MappingConfig> destinationConfigMappings = new HashSet<>();
 
+    private String removeTags;
+
     // simlife-needle-entity-add-field - Simlife will add fields here, do not remove
     public String getId() {
         return id;
@@ -103,6 +105,14 @@ public class Channel implements Serializable {
     public Channel totalLevel(Integer totalLevel) {
         this.totalLevel = totalLevel;
         return this;
+    }
+
+    public String getRemoveTags() {
+        return removeTags;
+    }
+
+    public void setRemoveTags(String removeTags) {
+        this.removeTags = removeTags;
     }
 
     public void setTotalLevel(Integer totalLevel) {
